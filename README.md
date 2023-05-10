@@ -1,0 +1,1 @@
+Training models to use the HLS-DSWx validation data and training models to generate validation for the entire scene
