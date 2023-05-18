@@ -1,0 +1,12 @@
+name: expand-validation
+channels:
+  - conda-forge
+dependencies:
+  - geopandas
+  - rasterio
+  - jupyterlab
+  - python-dotenv
+  - planet=1.5.2
+  - boto3
+  - matplotlib
+  - scikit-image
