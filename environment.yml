@@ -10,3 +10,5 @@ dependencies:
   - boto3
   - matplotlib
   - scikit-image
+  - pystac-client
+  - dem_stitcher
