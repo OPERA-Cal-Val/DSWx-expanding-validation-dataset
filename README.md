@@ -9,6 +9,7 @@ The repository provides an environment file which will create an Anaconda enviro
 conda env create -f environment.yml
 conda activate expand-validation
 ```
+We recommend using [`mamba`](https://mamba.readthedocs.io/en/latest/installation.html) to speed up the process of creating the python environment
 
 # Repository layout
     .
