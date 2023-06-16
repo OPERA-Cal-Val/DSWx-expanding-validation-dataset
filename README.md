@@ -1,6 +1,6 @@
 In this repostory, we will train models that leverage validation data generated for the OPERA DSWx-HLS product and produce open surface water / not water inferences on the entire Planetscope image from which the validation data was generated. 
 
-We then follow a previously established worksflow ([see here](https://github.com/OPERA-Cal-Val/DSWx-HLS-Requirement-Verification/blob/05ac35701d506ce6d1a1e886fc6c1198003e7eff/0-Verify_Requirements.ipynb)) to compare the DSWx product to the generated classification, and assign a pass/fail score based on the metrics required by requirements
+We then follow a previously established workflow ([see here](https://github.com/OPERA-Cal-Val/DSWx-HLS-Requirement-Verification/blob/05ac35701d506ce6d1a1e886fc6c1198003e7eff/0-Verify_Requirements.ipynb)) to compare the DSWx product to the generated classification, and assign a pass/fail score based on the metrics required by requirements
 
 # Prerequisites
 The repository provides an environment file which will create an Anaconda environment and install the requisite python packages. This environment is created and activated by the following commands:
