@@ -1,0 +1,133 @@
+%\documentclass[xcolor=dvipsnames, 8pt]{beamer}
+\documentclass[8pt]{beamer}
+
+\mode<presentation>
+{
+  \usetheme{default}      % or try Darmstadt, Madrid, Warsaw, ...
+  \usecolortheme{beaver} % or try albatross, beaver, crane, ...
+  \usefonttheme{default}  % or try serif, structurebold, ...
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{caption}[numbered]
+  \setbeamerfont{frametitle}{size=\tiny}
+} 
+
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=,urlcolor=blue}
+\usepackage{caption, array}
+\usepackage[Export]{adjustbox}
+\usepackage{multirow}
+\usepackage{booktabs}
+\setbeamerfont{page number in head/foot}{size=\large}
+\setbeamertemplate{footline}[frame number]
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\begin{center}
+\textbf{Expanding DSWx Validation}\\
+\vspace{.5cm}
+Karthik Venkataramani, Charlie Marshak, \\John W Jones, \& Al Handwerger \\
+DRAFT
+
+\today\\
+%\vspace{.2in}
+\end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Validation Summary}
+\tiny
+\begin{itemize}
+\item 52 validation sites across 4 strata defined in \href{https://www.sciencedirect.com/science/article/pii/S0034425720301620}{Pickens et al.} - chips are reclassified into appropriate strata based on current water extents.
+\begin{itemize}
+\tiny
+\item Strata 0: Dry (0$\%$ water): 14 sites
+\item Strata 1: low water ($>0$ and $\leq.08\%$): 11 sites
+\item Strata 2: moderate  water ($>0.08\%$ and $\leq 2\%$): 13 sites
+\item Strata 3: high water ($>2\%$): 14 sites
+\end{itemize}
+\end{itemize}
+
+\vfill
+\textbf{Summary Table:}
+ \\[2\baselineskip]
+
+The minimum accuracy requirements on OSW and PSW are:
+\begin{itemize}
+\item 80\% accuracy for OSW on 80\% of datasets
+\item 70\% accuracy for PSW on 80\% of datasets
+\end{itemize}
+
+
+\begin{center}
+\include{summary}
+\end{center}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+  \frametitle{Model Summary}
+  \vfill
+  Model training:
+  \begin{itemize}
+    \item Random forest model with 300 estimators
+    \item Using the green, red, and NIR channels of the Planet image, we segment our input image using the Felzenszwalb algorithm (scale=2, min size=5, sigma=1.5) \\
+    \item We compute NDWI and NDVI values from the Planet image
+    \item We compute the mean and standard deviation for all segments for the following set of channels: [Red, NIR, Green, NDWI, NDVI]
+    \item The resulting model has a precision and recall of \\
+    \begin{itemize}
+    \item 99.83\% and 99.02\% for not-water 
+    \item 88.19\% and 96.29\% for open surface water 
+    \end{itemize}
+
+  \end{itemize}
+  \vfill
+  \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\textbf{Strata distribution:}
+\vfill
+\centering
+\includegraphics[scale=0.35]{strata_distribution_plot.png}
+\end{frame}
+
+\begin{frame}
+\textbf{Summary chart:}
+The plots below show the number of cases passing for each strata in the original and expanded validation dataset. We refer to the original site id in determining the strata of an expanded scene.
+\vfill
+\begin{figure}
+  \hspace*{-1cm}   
+\includegraphics[scale=0.25]{performance_bar_plot.png}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+  \textbf{Summary chart:}
+  The plots below show the number of cases passing for each strata in the original validation dataset
+  \begin{figure}
+    \hspace*{-1cm}   
+  \includegraphics[scale=0.25]{pass_fail_original_distribution.png}
+  \end{figure}
+\end{frame}
+
+  \begin{frame}
+    \textbf{Summary chart:}
+    The plots below show the number of cases passing for each strata in the expanded validation dataset. We organize sites here by their reclassified strata
+    \vfill
+    \begin{figure}
+      \hspace*{-1cm}   
+    \includegraphics[scale=0.25]{pass_fail_new_distribution.png}
+    \end{figure}
+  \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{slides}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
