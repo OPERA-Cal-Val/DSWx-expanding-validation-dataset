@@ -12,3 +12,4 @@ dependencies:
   - scikit-image
   - pystac-client
   - dem_stitcher
+  - tqdm
