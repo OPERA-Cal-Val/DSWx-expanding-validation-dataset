@@ -13,3 +13,4 @@ dependencies:
   - pystac-client
   - dem_stitcher
   - papermill
+  - notebook
