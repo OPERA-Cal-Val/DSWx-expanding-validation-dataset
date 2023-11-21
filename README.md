@@ -4,6 +4,7 @@ We then follow a previously established workflow ([see here](https://github.com/
 
 # Repository layout
 The layout of the repository is shown below:
+
     .
     ├── data
     │   └─ validation_table.csv   # File describing Planet, HLS, and DSWx image IDs, along with S3 bucket links to the DSWx and validation data
