@@ -47,7 +47,7 @@ PLANET_API_KEY='YOUR KEY HERE'
 Planet data is made available through the NASA Commercial Smallsat Data Acquisition (CSDA) program. The access request form is available through the [CSDA website](https://www.earthdata.nasa.gov/esds/csda). Once filled out, users should receive to an account with an API key.
 
 # Executing Jupyter Notebooks
-The notebooks contained in this repository are numbered, and they should be executed in order to work correctly. For example, `notebooks/1c-Visualize-existing-validation.ipynb` will require that `notebooks/1a-Download-datasets.ipynb` is executed first.
+The notebooks contained in this repository are numbered, and they should be executed in order to work correctly. For example, `notebooks/2a-Train-and-infer-all-chips.ipynb` will require that `notebooks/1a-Download-datasets.ipynb` is executed first.
 
 # Troubleshooting
 If DSWx tiles corresponding to the Planet images do not get downloaded into the respective folders, it is likely because of updated DSWx filenames. Replace the `data/validation_table.csv` file with the one from [this link](https://github.com/OPERA-Cal-Val/DSWx-Requirement-Verification/blob/dev/dswx_verification/data/validation_table.csv)
