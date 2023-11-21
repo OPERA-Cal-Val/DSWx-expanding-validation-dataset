@@ -11,6 +11,7 @@ import sys
 from datetime import datetime
 from typing import Tuple
 import warnings
+from collections import Counter
 
 # gis imports
 import geopandas as gpd
@@ -24,6 +25,7 @@ def _get_superpixel_means_band(label_array: np.array,
     # scipy wants labels to begin at 1 and transforms to 1, 2, ..., n+1
     labels_ = label_array + 1
     labels_unique = np.unique(labels_)
+    labels_unique = labels_unique[np.where(labels_unique>0)]
     means = measurements.mean(band, labels=labels_, index=labels_unique)
     return means.reshape((-1, 1))
 
@@ -48,11 +50,11 @@ def _get_superpixel_stds_band(label_array: np.array,
     # scipy wants labels to begin at 1 and transforms to 1, 2, ..., n+1
     labels_ = label_array + 1
     labels_unique = np.unique(labels_)
-    means = measurements.standard_deviation(band,
+    labels_unique = labels_unique[np.where(labels_unique>0)]
+    stddevs = measurements.standard_deviation(band,
                                             labels=labels_,
                                             index=labels_unique)
-    return means.reshape((-1, 1))
-
+    return stddevs.reshape((-1, 1))
 
 def get_superpixel_stds_as_features(label_array: np.array,
                                     img: np.array) -> np.array:
@@ -402,3 +404,11 @@ def get_geopandas_features_from_array(arr: np.ndarray,
                          'geometry': geometry}
                         for i, (geometry, value) in enumerate(feature_list))
     return geo_features
+
+def get_segment_sizes(segments: np.ndarray)->np.array:
+    """
+    For a segmented image containing unique labels, return the size of each segment
+    The returned array is sorted by segment number, and only non-negative segment numbers are considered
+    This allows for no-data regions to be given a negative value and be ignored
+    """
+    return np.array([v for (k, v) in sorted(Counter(segments.flatten()).items()) if k>=0]).reshape((-1, 1))
