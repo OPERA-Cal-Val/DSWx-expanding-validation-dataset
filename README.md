@@ -8,6 +8,9 @@ The layout of the repository is shown below:
     .
     ├── data
     │   └─ validation_table.csv   # File describing Planet, HLS, and DSWx image IDs, along with S3 bucket links to the DSWx and validation data
+    ├── latex # summary reports can be generated using these latex files
+    │   ├─ main.tex 
+    │   └─ summary.tex
     ├── notebooks
     │   ├─ .env         # Location for Planet API key
     │   ├─ 0-Setup-folder-structures.ipynb
