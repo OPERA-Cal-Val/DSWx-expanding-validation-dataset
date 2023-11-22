@@ -29,7 +29,7 @@
 \begin{center}
 \textbf{Expanding DSWx Validation}\\
 \vspace{.5cm}
-Karthik Venkataramani, Charlie Marshak, \\John W Jones, \& Al Handwerger \\
+
 DRAFT
 
 \today\\
@@ -75,15 +75,11 @@ The minimum accuracy requirements on OSW and PSW are:
   \vfill
   Model training:
   \begin{itemize}
-    \item Random forest model with 300 estimators
-    \item Using the green, red, and NIR channels of the Planet image, we segment our input image using the Felzenszwalb algorithm (scale=2, min size=5, sigma=1.5) \\
-    \item We compute NDWI and NDVI values from the Planet image
-    \item We compute the mean and standard deviation for all segments for the following set of channels: [Red, NIR, Green, NDWI, NDVI]
-    \item The resulting model has a precision and recall of \\
-    \begin{itemize}
-    \item 99.83\% and 99.02\% for not-water 
-    \item 88.19\% and 96.29\% for open surface water 
-    \end{itemize}
+    \item Random forest or Gradient Boosted Tree model with 100-300 estimators. \\
+    \item We first apply edge detection, histogram normalization, and gamma correction to preprocess the NIR PlanetScope image. \\
+    \item We apply the Felzenszwalb segmentation algorithm (scale=20, min size=20, sigma=0) on the preprocessed NIR image to generate superpixels. \\
+    \item We generate training samples as the mean and standard deviation values for the red, nir, green, NDWI and NDVI values for each of the segments. \\
+    \item The water/not-water label derived from the hand-drawn binary mask serves as the training labels, which the model is trained on.
 
   \end{itemize}
   \vfill
