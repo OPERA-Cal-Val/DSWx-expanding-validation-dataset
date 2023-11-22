@@ -25,6 +25,7 @@ The layout of the repository is shown below:
     │   └─ tools.py
     │
     ├── environment.yml # YAML file describing environment dependencies
+    ├── LICENSE.txt     # Apache license 2.0
     └── README.md       # This file
 
 This layout will change as datasets are downloaded and model inferences are generated. Planetscope images are downloaded into scenewise folders within `data/`, along with the corresponding DSWx data. Cropped versions of the Planetscope images are also saved in scenewise folders, into the `data/planet_images_cropped` along with the expert-drawn classification data.
