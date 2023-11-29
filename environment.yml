@@ -12,4 +12,9 @@ dependencies:
   - scikit-image
   - pystac-client
   - dem_stitcher
+<<<<<<< HEAD
   - tqdm
+=======
+  - papermill
+  - notebook
+>>>>>>> a8ad35f4bb241de3674d92fc019dc704cd462696
