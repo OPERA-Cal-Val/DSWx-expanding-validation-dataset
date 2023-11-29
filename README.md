@@ -6,8 +6,8 @@ For example, the figure below shows an OPERA DSWx tile, along with the extent of
 </p>
 Ideally we would like to use the entire PlanetScope image for DSWx validation.
 
-<br/>
-Here are two examples of the water masks expanded to span the PlanetScope image, generated using the models trained on the existing validation data.
+<br /> 
+Here are two examples of the water masks expanded to span the PlanetScope image, generated using the models trained on the existing validation data:
 <p align="center">
 <img src="figures/example_1.png" width="1000">
 </p>
