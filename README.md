@@ -1,5 +1,20 @@
 In this repository, we train models that help us expand the amount of data available for OPERA DSWx validation. We leverage the expert-generated validation data produced for the OPERA DSWx-HLS product, and produce open surface water / not water inferences on full Planetscope images.
 
+For example, the figure below shows an OPERA DSWx tile, along with the extent of a PlanetScope image used for validation, and the extent of the hand labeled data over which validation occurs:
+<p align="center">
+<img src="figures/comparing_val_extent.png" width="600">
+</p>
+Ideally we would like to use the entire PlanetScope image for DSWx validation.
+
+Here are two examples of the expanded water masks for a PlanetScope image
+<p align="center">
+<img src="figures/example_1.png" width="1000">
+</p>
+
+<p align="center">
+<img src="figures/example_2.png" width="1000">
+</p>
+
 We then follow a previously established workflow ([see here](https://github.com/OPERA-Cal-Val/DSWx-HLS-Requirement-Verification/blob/05ac35701d506ce6d1a1e886fc6c1198003e7eff/0-Verify_Requirements.ipynb)) to compare the DSWx product to the generated classification, and assign a pass/fail score based on requirements.
 
 # Repository layout
